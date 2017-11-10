@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express.Router()
-const model = require('../models/UserModel')
+const client = require('../model/db')
 
 app.get('/:id/todos', (req, res) => {
   const { id } = req.params;

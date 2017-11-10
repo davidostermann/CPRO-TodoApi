@@ -1,20 +1,10 @@
 const express = require('express')
-const userController = require('./controllers/UserController')
-const todoController = require('./controllers/TodoController')
-const catController = require('./controllers/CatController')
+const userController = require('./controller/UserController')
+const todoController = require('./controller/TodoController')
+const catController = require('./controller/CatController')
 const app = express()
 
 app.use(express.json()) // middleware qui permet de parser du json envoyé en POST
-
-const { Client } = require('pg')
-const client = new Client({
-  connectionString: 'postgres://postgres:changeme@localhost:5432/tododb'
-})
-client.connect().then( () => {
-  console.log('successfully connected')
-}).catch( (err) => {
-  console.log('error :', err)
-})
 
 app.get('/', (req, res) => {
   res.send('coucou')

@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express.Router()
+const client = require('../model/db')
+const model = require('../model/UserModel')
 
 app.get('/', (req, res) => {
   client.query('SELECT * from users').then((data) => {
