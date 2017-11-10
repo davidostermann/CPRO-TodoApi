@@ -1,20 +1,26 @@
 const express = require('express')
+const cors = require('cors')
+
 const userController = require('./controller/UserController')
 const todoController = require('./controller/TodoController')
 const catController = require('./controller/CatController')
+
 const app = express()
 
+app.use(cors());
 app.use(express.json()) // middleware qui permet de parser du json envoyé en POST
+
+
 
 app.get('/', (req, res) => {
   res.send('coucou')
 })
 
 // Users
-
 app.use('/user', userController)
 app.use('/todo', todoController)
 app.use('/category', catController)
+
 
 app.listen(3000, function(err) {
   if(err) {
