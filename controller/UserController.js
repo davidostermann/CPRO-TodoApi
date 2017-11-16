@@ -6,8 +6,11 @@ module.exports = express.Router()
 
 .get('/', (req, res) => {
   model.getAllUsers().then((data) => {
+    console.log('APPLICATIVE LAYER success : ', data);
     res.send(data.rows)
   }).catch(err => {
+    console.log('APPLICATIVE LAYER err : ', err);
+    
     res.json(err)
   })
 })
